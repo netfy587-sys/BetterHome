@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Food vs Street Food — What You're Really Choosing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --cream:#FAF3E7;
+    --ink:#241C14;
+    --ink-soft:#5B5245;
+    --leaf:#2F5233;
+    --leaf-deep:#1E3A22;
+    --leaf-soft:#E4EDDC;
+    --chili:#B8401A;
+    --chili-deep:#8E2F12;
+    --chili-soft:#F5E1CE;
+    --sand:#EFE3CC;
+    --gold:#C98A2B;
+    --rule: rgba(36,28,20,0.14);
+    --maxw: 680px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Public Sans', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    color:var(--ink);
+    margin:0;
+  }
+
+  p{margin:0 0 1.1em 0;}
+  p:last-child{margin-bottom:0;}
+
+  a{color:inherit;}
+
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .wrap-wide{
+    max-width:980px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    position:relative;
+    height:min(92vh, 720px);
+    min-height:480px;
+    overflow:hidden;
+    background:var(--ink);
+  }
+  .hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 62%;
+    opacity:0.88;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(20,14,8,0.15) 0%, rgba(20,14,8,0.15) 35%, rgba(20,14,8,0.86) 100%);
+  }
+  .hero-content{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:0 24px 52px;
+    color:var(--cream);
+    z-index:2;
+  }
+  .hero-eyebrow{
+    font-family:'Newsreader', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:#E7D9BE;
+    margin-bottom:10px;
+  }
+  .hero h1{
+    color:#FBF6EC;
+    font-size:clamp(2.3rem, 6vw, 4rem);
+    line-height:1.05;
+    max-width:820px;
+    letter-spacing:-0.01em;
+  }
+  .hero-sub{
+    max-width:520px;
+    margin-top:18px;
+    color:#E9DFC9;
+    font-size:1.02rem;
+  }
+  .hero-credit{
+    position:absolute;
+    right:24px; bottom:16px;
+    font-size:0.72rem;
+    color:rgba(250,243,231,0.55);
+    z-index:2;
+  }
+
+  /* ---------- GENERIC SECTION SPACING ---------- */
+
+  section{padding:88px 0;}
+  section.tight{padding:56px 0;}
+
+  .kicker{
+    font-family:'Newsreader', serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:1rem;
+    margin-bottom:10px;
+  }
+
+  h2.section-title{
+    font-size:clamp(1.7rem, 3.6vw, 2.5rem);
+    line-height:1.15;
+    max-width:600px;
+    letter-spacing:-0.01em;
+  }
+
+  .lede{
+    font-family:'Newsreader', serif;
+    font-size:1.28rem;
+    line-height:1.55;
+    color:var(--ink);
+    max-width:640px;
+  }
+
+  .rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:0;
+  }
+
+  /* ---------- INTRO ---------- */
+
+  .intro{background:var(--cream);}
+  .intro-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .intro-num{
+    font-family:'Newsreader', serif;
+    font-size:0.95rem;
+    color:var(--ink-soft);
+    border-top:1px solid var(--rule);
+    padding-top:14px;
+    margin-top:26px;
+  }
+
+  @media (max-width:760px){
+    .intro-grid{grid-template-columns:1fr; gap:24px;}
+  }
+
+  /* ---------- DEFINE SECTIONS (image + text alternating) ---------- */
+
+  .define{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    align-items:center;
+  }
+  .define .photo{height:100%; min-height:460px; overflow:hidden; position:relative;}
+  .define .photo img{width:100%; height:100%; object-fit:cover;}
+  .define .photo .cap{
+    position:absolute; left:18px; bottom:14px;
+    font-size:0.7rem; color:rgba(255,255,255,0.75);
+    text-shadow:0 1px 3px rgba(0,0,0,0.5);
+  }
+  .define .text{padding:56px 48px;}
+  .define.reverse{grid-template-columns: 1fr 1fr;}
+  .define.reverse .photo{order:2;}
+  .define.reverse .text{order:1;}
+
+  .define.leaf .text{background:var(--leaf-soft);}
+  .define.chili .text{background:var(--chili-soft);}
+
+  .tag{
+    display:inline-block;
+    font-family:'Newsreader', serif;
+    font-style:italic;
+    font-size:0.95rem;
+    padding-bottom:4px;
+    margin-bottom:16px;
+    border-bottom:1px solid currentColor;
+  }
+  .leaf .tag{color:var(--leaf-deep);}
+  .chili .tag{color:var(--chili-deep);}
+
+  .define h3{font-size:1.7rem; margin-bottom:16px; line-height:1.2;}
+  .define .text p{color:var(--ink-soft); max-width:420px;}
+
+  @media (max-width:820px){
+    .define, .define.reverse{grid-template-columns:1fr;}
+    .define .photo, .define.reverse .photo{order:1; min-height:320px;}
+    .define .text, .define.reverse .text{order:2; padding:40px 28px;}
+  }
+
+  /* ---------- VERSUS / COMPARISON TABLE ---------- */
+
+  .versus{background:var(--ink); color:var(--cream);}
+  .versus .kicker{color:#C7B79A;}
+  .versus h2.section-title{color:#FBF6EC; max-width:640px;}
+  .versus .lede{color:#D8CBB2;}
+
+  .vs-head{
+    display:grid;
+    grid-template-columns: 1fr 90px 1fr;
+    margin-top:56px;
+    align-items:end;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(250,243,231,0.18);
+  }
+  .vs-head .side{
+    font-family:'Newsreader', serif;
+    font-size:1.4rem;
+  }
+  .vs-head .side.h{color:#9FD1A6;}
+  .vs-head .side.s{color:#E7A67D; text-align:right;}
+  .vs-head .mid{text-align:center; color:rgba(250,243,231,0.4); font-size:0.85rem; font-family:'Newsreader',serif; font-style:italic;}
+
+  .vs-row{
+    display:grid;
+    grid-template-columns: 1fr 90px 1fr;
+    padding:22px 0;
+    border-bottom:1px solid rgba(250,243,231,0.1);
+    align-items:start;
+  }
+  .vs-row .label{
+    grid-column:1/-1;
+    font-size:0.78rem;
+    letter-spacing:0.02em;
+    color:rgba(250,243,231,0.45);
+    margin-bottom:8px;
+    font-family:'Public Sans', sans-serif;
+  }
+  .vs-row .h, .vs-row .s{font-size:0.98rem; color:#EDE4D2;}
+  .vs-row .s{text-align:right;}
+  .vs-row .mid{text-align:center; color:rgba(250,243,231,0.25); font-family:'Newsreader',serif; font-style:italic;}
+
+  @media (max-width:640px){
+    .vs-head, .vs-row{grid-template-columns:1fr;}
+    .vs-head .side.s, .vs-row .s{text-align:left;}
+    .vs-head .mid, .vs-row .mid{display:none;}
+    .vs-row .h{margin-bottom:6px;}
+  }
+
+  /* ---------- BENEFIT LISTS ---------- */
+
+  .benefits{background:var(--cream);}
+  .benefit-cols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    margin-top:48px;
+    border-top:1px solid var(--rule);
+  }
+  .benefit-col{padding:36px 40px;}
+  .benefit-col.leafcol{border-right:1px solid var(--rule); background:linear-gradient(180deg, var(--leaf-soft), transparent 220px);}
+  .benefit-col.chilicol{background:linear-gradient(180deg, var(--chili-soft), transparent 220px);}
+  .benefit-col h3{font-size:1.4rem; margin-bottom:22px;}
+  .leafcol h3{color:var(--leaf-deep);}
+  .chilicol h3{color:var(--chili-deep);}
+
+  .benefit-item{
+    padding:16px 0;
+    border-top:1px solid var(--rule);
+  }
+  .benefit-item:first-of-type{border-top:none;}
+  .benefit-item .b-title{font-weight:600; margin-bottom:4px; font-size:0.98rem;}
+  .benefit-item .b-desc{color:var(--ink-soft); font-size:0.93rem;}
+
+  @media (max-width:760px){
+    .benefit-cols{grid-template-columns:1fr;}
+    .benefit-col.leafcol{border-right:none; border-bottom:1px solid var(--rule);}
+  }
+
+  /* ---------- RISK CALLOUTS ---------- */
+
+  .risks{background:var(--sand);}
+  .risk-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+    margin-top:44px;
+  }
+  .risk-card{
+    background:var(--cream);
+    padding:26px 24px;
+    border-left:3px solid var(--chili);
+  }
+  .risk-card h4{
+    font-family:'Newsreader', serif;
+    font-size:1.1rem;
+    margin-bottom:8px;
+    font-weight:500;
+  }
+  .risk-card p{font-size:0.92rem; color:var(--ink-soft);}
+
+  @media (max-width:760px){
+    .risk-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- BALANCE / TIPS ---------- */
+
+  .tips{background:var(--leaf-deep); color:var(--cream);}
+  .tips .kicker{color:#B9D4B6;}
+  .tips h2.section-title{color:#FBF6EC;}
+  .tips .lede{color:#DCE9D6;}
+
+  .tip-list{
+    margin-top:44px;
+    display:grid;
+    gap:0;
+  }
+  .tip-row{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:20px;
+    padding:22px 0;
+    border-top:1px solid rgba(250,243,231,0.15);
+  }
+  .tip-row:last-child{border-bottom:1px solid rgba(250,243,231,0.15);}
+  .tip-index{
+    font-family:'Newsreader', serif;
+    font-style:italic;
+    font-size:1rem;
+    color:#9FD1A6;
+    padding-top:2px;
+  }
+  .tip-row h4{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    font-size:1.15rem;
+    margin-bottom:6px;
+    color:#FBF6EC;
+  }
+  .tip-row p{color:#D8E5D4; font-size:0.95rem; max-width:520px;}
+
+  /* ---------- VERDICT ---------- */
+
+  .verdict{background:var(--cream);}
+  .verdict .lede{max-width:100%;}
+  .verdict-quote{
+    font-family:'Newsreader', serif;
+    font-style:italic;
+    font-size:clamp(1.4rem, 2.6vw, 1.9rem);
+    line-height:1.4;
+    color:var(--ink);
+    max-width:640px;
+    margin-top:8px;
+  }
+
+  /* ---------- CLOSING PHOTO BAND ---------- */
+
+  .band{
+    height:340px;
+    position:relative;
+    overflow:hidden;
+  }
+  .band img{width:100%; height:100%; object-fit:cover;}
+  .band .cap{
+    position:absolute; left:24px; bottom:14px;
+    font-size:0.72rem; color:rgba(255,255,255,0.75);
+    text-shadow:0 1px 3px rgba(0,0,0,0.5);
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  footer{
+    background:var(--ink);
+    color:#B9AD97;
+    padding:48px 0 36px;
+    font-size:0.85rem;
+  }
+  footer .wrap{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+  footer a{text-decoration:underline; text-underline-offset:3px;}
+
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1758346972070-547c770d96ab?w=1800&q=80&auto=format&fit=crop" alt="A street food stall lit up at night, skewers of food laid out for customers">
+    <div class="hero-content">
+      <div class="hero-eyebrow">A close look at two ways of eating</div>
+      <h1>Healthy Food vs Street Food</h1>
+      <p class="hero-sub">Two plates, two philosophies. One is built around nutrients, the other around flavour, speed and street-corner ritual. Here's what actually separates them — and where they quietly overlap.</p>
+    </div>
+    <div class="hero-credit">Photo: Kelvin Zyteng / Unsplash</div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="wrap">
+      <div class="intro-grid">
+        <div>
+          <p class="kicker">Before the comparison</p>
+          <p class="lede">Almost everyone eats both. The home-cooked bowl of dal and the roadside plate of chaat aren't really competitors — they're two different relationships with food, shaped by time, money, culture and craving.</p>
+        </div>
+        <div>
+          <p>This page lays out what each one gives you and what it quietly costs you — nutritionally, financially and socially — without pretending either side is all good or all bad. By the end, the goal isn't to pick a winner. It's to know what you're actually choosing each time you choose.</p>
+          <div class="intro-num">Reading time: about 9 minutes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- DEFINE: HEALTHY FOOD -->
+  <div class="define leaf">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=80&auto=format&fit=crop" alt="A bowl of fresh vegetable salad with tomatoes, chickpeas and greens">
+      <div class="cap">Photo: Anna Pelzer / Unsplash</div>
+    </div>
+    <div class="text">
+      <span class="tag">Side one</span>
+      <h3>What counts as "healthy food"</h3>
+      <p>Meals built mostly from whole, minimally processed ingredients — vegetables, fruit, whole grains, pulses, lean proteins, and modest amounts of fat, salt and sugar. It's usually cooked at home or in a kitchen you can see into, portioned with some intention, and eaten at a fairly predictable time.</p>
+      <p>It isn't one cuisine or one diet plan. A plate of khichdi, a Mediterranean salad and a bowl of oats with fruit all qualify. What they share is a bias toward ingredients the body can use efficiently, and away from deep-frying, refined flour and heavy preservation.</p>
+    </div>
+  </div>
+
+  <!-- DEFINE: STREET FOOD -->
+  <div class="define chili reverse">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1596522869169-95231d2b6864?w=1200&q=80&auto=format&fit=crop" alt="Pooris being deep fried in oil at a roadside food stall in Uttar Pradesh, India">
+      <div class="cap">Photo: Ashwini Chaudhary / Unsplash</div>
+    </div>
+    <div class="text">
+      <span class="tag">Side two</span>
+      <h3>What counts as "street food"</h3>
+      <p>Food cooked and sold from stalls, carts and small roadside kitchens — pani puri, vada pav, momos, tacos, skewers, fried snacks — usually made fast, in full public view, and eaten standing up or on the move.</p>
+      <p>It's defined less by its ingredients than by its setting: an open kitchen, a short wait, cash in hand, and a menu that rarely changes because the vendor has perfected three or four dishes over years, sometimes decades.</p>
+    </div>
+  </div>
+
+  <!-- VERSUS COMPARISON TABLE -->
+  <section class="versus">
+    <div class="wrap-wide">
+      <p class="kicker">Side by side</p>
+      <h2 class="section-title">Where they actually differ</h2>
+      <p class="lede" style="margin-top:14px;">Not every difference is nutritional. Some are about money, time and trust.</p>
+
+      <div class="vs-head">
+        <div class="side h">Healthy food</div>
+        <div class="mid">vs</div>
+        <div class="side s">Street food</div>
+      </div>
+
+      <div class="vs-row">
+        <div class="label">Nutrient balance</div>
+        <div class="h">Portioned deliberately — fibre, protein and micronutrients are usually accounted for.</div>
+        <div class="mid">·</div>
+        <div class="s">Skews toward carbohydrate, oil and salt; vegetables and protein are often an afterthought.</div>
+      </div>
+
+      <div class="vs-row">
+        <div class="label">Hygiene &amp; food safety</div>
+        <div class="h">Cooked in a controlled kitchen, ingredients stored and washed under your own standards.</div>
+        <div class="mid">·</div>
+        <div class="s">Depends entirely on the individual vendor — water source, oil reuse and storage vary a lot, stall to stall.</div>
+      </div>
+
+      <div class="vs-row">
+        <div class="label">Cost per meal</div>
+        <div class="h">Cheaper in bulk, but needs upfront spending on groceries and time to cook.</div>
+        <div class="mid">·</div>
+        <div class="s">Usually the cheapest hot meal available right now, with zero prep cost.</div>
+      </div>
+
+      <div class="vs-row">
+        <div class="label">Time investment</div>
+        <div class="h">Requires planning, shopping and cooking — 30 to 90 minutes, several times a week.</div>
+        <div class="mid">·</div>
+        <div class="s">Ready in minutes, no planning, no cleanup.</div>
+      </div>
+
+      <div class="vs-row">
+        <div class="label">Flavour &amp; craving</div>
+        <div class="h">Can be delicious, but rarely hits the same salt-fat-spice combination a fryer does.</div>
+        <div class="mid">·</div>
+        <div class="s">Engineered by years of trial and error to be immediately, intensely satisfying.</div>
+      </div>
+
+      <div class="vs-row">
+        <div class="label">Cultural role</div>
+        <div class="h">Often private — a household routine, sometimes tied to diet goals or restrictions.</div>
+        <div class="mid">·</div>
+        <div class="s">Public and social — tied to neighbourhoods, festivals, and a local economy of small vendors.</div>
+      </div>
+
+      <div class="vs-row">
+        <div class="label">Consistency</div>
+        <div class="h">You control every variable, so results are repeatable.</div>
+        <div class="mid">·</div>
+        <div class="s">Quality can shift day to day with the vendor, the weather and the ingredients on hand.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="wrap-wide">
+      <p class="kicker">Give credit where it's due</p>
+      <h2 class="section-title">What each one genuinely gets right</h2>
+
+      <div class="benefit-cols">
+        <div class="benefit-col leafcol">
+          <h3>The case for healthy food</h3>
+
+          <div class="benefit-item">
+            <div class="b-title">Steadier energy through the day</div>
+            <div class="b-desc">Fibre and protein slow digestion, so blood sugar rises and falls more gradually than after a fried, sugar-heavy snack.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="b-title">Lower long-term disease risk</div>
+            <div class="b-desc">Diets built around vegetables, whole grains and lean protein are consistently linked to lower rates of heart disease, type 2 diabetes and obesity.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="b-title">You control the ingredients</div>
+            <div class="b-desc">Salt, oil, sugar and portion size are your decisions, not a vendor's — useful for allergies, medical diets or simple preference.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="b-title">Better for the gut long-term</div>
+            <div class="b-desc">Fibre from vegetables, fruit and whole grains feeds gut bacteria in ways processed, fried food generally doesn't.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="b-title">Cheaper over a month, not a meal</div>
+            <div class="b-desc">Buying whole ingredients in bulk and cooking at home is usually less expensive across a week than eating out daily — even if any single street meal is cheap.</div>
+          </div>
+        </div>
+
+        <div class="benefit-col chilicol">
+          <h3>The case for street food</h3>
+
+          <div class="benefit-item">
+            <div class="b-title">Unmatched convenience</div>
+            <div class="b-desc">No shopping, no cooking, no dishes — a full hot meal in the time it takes to cross the street.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="b-title">Supports local livelihoods</div>
+            <div class="b-desc">Street vendors are often small, independent operators; a plate bought from a stall supports one household directly.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="b-title">Deep culinary skill, sharpened by repetition</div>
+            <div class="b-desc">A vendor who has made the same dish for twenty years has usually refined it further than most home cooks ever will.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="b-title">Cultural continuity</div>
+            <div class="b-desc">Many street dishes carry regional history and technique that doesn't survive well in a home kitchen or restaurant menu.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="b-title">Genuinely low cost per plate</div>
+            <div class="b-desc">For a single meal, right now, it's usually the cheapest hot food option available — important where budgets are tight.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STREET FOOD BAND -->
+  <div class="band">
+    <img src="https://images.unsplash.com/photo-1557844352-761f2565b576?w=1600&q=75&auto=format&fit=crop" alt="Fresh green vegetables piled together at a market stall">
+    <div class="cap">Photo: Iñigo De la Maza / Unsplash</div>
+  </div>
+
+  <!-- RISKS -->
+  <section class="risks">
+    <div class="wrap-wide">
+      <p class="kicker">The honest downside</p>
+      <h2 class="section-title">What street food tends to cost you</h2>
+      <p class="lede" style="margin-top:14px;">None of this means avoid it entirely — it means know what you're weighing.</p>
+
+      <div class="risk-grid">
+        <div class="risk-card">
+          <h4>Reused, high-heat oil</h4>
+          <p>Oil heated and reused repeatedly through a shift can break down into compounds linked to inflammation, and it's rarely visible from the customer side of the cart.</p>
+        </div>
+        <div class="risk-card">
+          <h4>Hidden salt and sugar</h4>
+          <p>Chutneys, sauces and batters often carry far more salt and sugar than the dish appears to, since both are cheap ways to boost flavour fast.</p>
+        </div>
+        <div class="risk-card">
+          <h4>Inconsistent food safety</h4>
+          <p>Water quality, ingredient storage and hand hygiene vary vendor to vendor — the same dish can be perfectly safe at one stall and risky at another.</p>
+        </div>
+        <div class="risk-card">
+          <h4>Few vegetables, little protein</h4>
+          <p>Most popular street dishes are built on refined carbohydrate and fried starch, with vegetables and protein playing a minor, garnish-level role.</p>
+        </div>
+        <div class="risk-card">
+          <h4>Portion sizes you don't control</h4>
+          <p>There's no nutrition label and no measuring cup — a "small" plate can carry more oil and calories than it looks like it should.</p>
+        </div>
+        <div class="risk-card">
+          <h4>Easy to eat too often</h4>
+          <p>Because it's fast, cheap and satisfying, street food is easy to default to daily — turning an occasional treat into most of a diet without noticing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BALANCE / TIPS -->
+  <section class="tips">
+    <div class="wrap">
+      <p class="kicker">A more useful question than "which is better"</p>
+      <h2 class="section-title">How to actually balance the two</h2>
+      <p class="lede" style="margin-top:14px;">Most people don't need to quit street food. They need a few habits that make room for both.</p>
+
+      <div class="tip-list">
+        <div class="tip-row">
+          <div class="tip-index">01</div>
+          <div>
+            <h4>Pick stalls by turnover, not appearance</h4>
+            <p>A cart with a constant queue is refilling and reheating ingredients often — that matters more for safety than how clean the cart looks.</p>
+          </div>
+        </div>
+        <div class="tip-row">
+          <div class="tip-index">02</div>
+          <div>
+            <h4>Add a vegetable side, on purpose</h4>
+            <p>Most street meals are missing greens entirely. A side salad or a piece of fruit afterward closes that gap without changing what you ordered.</p>
+          </div>
+        </div>
+        <div class="tip-row">
+          <div class="tip-index">03</div>
+          <div>
+            <h4>Treat fried items as the exception, not the default</h4>
+            <p>Grilled, steamed or boiled street food — corn, momos, tikka — carries most of the flavour with a fraction of the oil.</p>
+          </div>
+        </div>
+        <div class="tip-row">
+          <div class="tip-index">04</div>
+          <div>
+            <h4>Cook the predictable meals, eat out for the special ones</h4>
+            <p>Let home cooking cover routine weekday meals, and save street food for when it's actually about the experience — not just convenience.</p>
+          </div>
+        </div>
+        <div class="tip-row">
+          <div class="tip-index">05</div>
+          <div>
+            <h4>Ask what's in the chutney</h4>
+            <p>The sauce is often where most of the salt, sugar and oil hides. A smaller portion of it changes the whole plate's balance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERDICT -->
+  <section class="verdict">
+    <div class="wrap">
+      <p class="kicker">Where this leaves us</p>
+      <h2 class="section-title">Not a winner. A ratio.</h2>
+      <p class="verdict-quote">Healthy food builds the baseline your body runs on. Street food is one of the ways people actually enjoy eating — and cutting it out entirely rarely lasts. The real skill isn't choosing a side. It's noticing which one is quietly making up most of your week, and nudging that ratio back toward whole food without giving up the plate of chaat that makes Tuesday better.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap-wide">
+      <div>Healthy Food vs Street Food — an informational read.</div>
+      <div>Photos via Unsplash, used under the Unsplash License.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
